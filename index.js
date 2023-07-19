@@ -1,10 +1,14 @@
 import { ApolloServer } from '@apollo/server'
 import { startStandaloneServer } from '@apollo/server/standalone'
 
-// server setup
-const server = new ApolloServer({
+// types
+import { typeDefs } from './schema'
 
-})
+// resolver
+import { resolvers } from './resolvers'
+
+// server setup
+const server = new ApolloServer({ typeDefs, resolvers })
 
 const url = await startStandaloneServer(server, {
     lister: { port: 4000 }
